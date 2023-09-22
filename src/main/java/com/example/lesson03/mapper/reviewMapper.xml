@@ -2,12 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.example.lesson02.mapper.UsedGoodsMapper">
-	<select id="selectUsedGoodsList" 
-	resultType="com.example.lesson02.domain.UsedGoods">
+ <mapper namespace="com.example.lesson03.mapper.ReviewMapper">
+	<select id="selectReview" parameterType="id" resultType="com.example.lesson03.domain.Review">
 		SELECT
-			*
-		FROM
+			`id` 
+			,`storeId`
+			,`menu`
+			,`userName `
+			,`point `
+			,`review `
+			,`createdAt`
+ 			,`updatedAt `
+			FROM
 			`new_review`
+			WHERE
+			`id`=#{id}
 	</select>
 </mapper>
