@@ -9,15 +9,32 @@ import com.example.lesson03.bo.ReviewBO;
 import com.example.lesson03.domain.Review;
 
 @RestController
-public class lesson03Ex01RestController {
-	
+public class Lesson03Ex01RestController {
+
 	@Autowired
 	private ReviewBO reviewBO;
-	//요청 url : http://localhost/lesson03/ex01
-	//요청 url : http://localhost/lesson03/ex01?id=5
+	
+	// 요청 url: http://localhost/lesson03/ex01
+	// 요청 url: http://localhost/lesson03/ex01?id=5
 	@RequestMapping("/lesson03/ex01")
-		public Review ex01(
-				@RequestParam(value="id") int id) {
-			return reviewBO.getReview(id); //response body에는 json이 내려가게 됨
+	public Review ex01(
+			@RequestParam("id") int id  // 필수 파라미터
+			//@RequestParam(value="id") int id // 필수 파라미터
+			//@RequestParam(value="id", required=true) int id // 필수 파라미터
+			//@RequestParam(value="id", required=false) Integer id // 비필수 파라미터
+			//@RequestParam(value="id", defaultValue="1") int id // 비필수 파라미터, 디폴트값 1
+			) {
+		
+		return reviewBO.getReview(id); // response body => json
 	}
 }
+
+
+
+
+
+
+
+
+
+
