@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ex02</title>
+<title>결과</title>
 </head>
 <body>
-	<h1>Ex02</h1>
-	<h3>Hello world!</h3>
+	<h1>입력 성공!</h1>
 </body>
 </html>
