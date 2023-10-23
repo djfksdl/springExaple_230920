@@ -21,11 +21,21 @@ public class Lesson07Ex01RestController {
 	@GetMapping("/1")
 	public StudentEntity create() {
 		String name = "신보람";
-		String phonNumber = "010-1111-5222";
+		String phoneNumber = "010-1111-5222";
 		String email = "sbr@kakao.com";
 		String dreamJob = "개발자";
 		
-		// 지금 들어간 id값도 바로 꺼낼 수 있다. getId();
-		return studentBO.addStudent(name, phonNumber, email, dreamJob);
+		// 지금 들어간 id 값도 바로 꺼낼 수 있다.   getId();
+		return studentBO.addStudent(name, phoneNumber, email, dreamJob);
 	}
+	
+	// U: Update
+	@GetMapping("/2")
+	public StudentEntity update() {
+		// id:4 dreamJob을 변경
+		// JSON
+		return studentBO.updateStudentDreamJobById(4, "디자이너");
+	}
+	
+	
 }
