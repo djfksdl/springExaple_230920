@@ -1,6 +1,7 @@
 package com.example.lesson04.bo;
 
 import java.time.ZonedDateTime;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +59,18 @@ public class StudentBO {
 		}
 		
 		return student;  // null 또는 변경된 데이터
+	}
+	
+	// input: id    output:X
+	public void deleteStudentById(int id) {
+		// 방법1) 
+//		StudentEntity student = studentRepository.findById(id).orElse(null);
+//		if (student != null) {
+//			studentRepository.delete(student);
+//		}
+		
+		// 방법2)
+		Optional<StudentEntity> studentOptinal = studentRepository.findById(id);
+		studentOptinal.ifPresent(s -> studentRepository.delete(s));
 	}
 }
